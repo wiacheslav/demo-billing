@@ -24,6 +24,12 @@ repositories {
     mavenCentral()
 }
 
+processResources {
+    dependsOn 'web-ui:build'
+    from('web-ui/dist/web-ui') {
+        into 'public'
+    }
+}
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
